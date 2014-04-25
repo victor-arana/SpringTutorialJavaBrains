@@ -2,31 +2,30 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 
 <beans>
-
+	
 	<bean id="triangle" class="com.victorarana.spring.Triangle">
-		<property name="pointA" ref="zeroPoint" />
-		<!-- This is an inner bean -->
-		<property name="pointB">
-			<!-- The id attribute is not necessary since this bean is not referenced 
-				from outside -->
-			<bean class="com.victorarana.spring.Point">
-				<property name="x" value="-20" />
-				<property name="y" value="0" />
-			</bean>
+		<property name="points">
+			<list>
+				<ref bean="zeroPoint"/>
+				<ref bean="point2"/>
+				<ref bean="point3"/>
+			</list>
 		</property>
-		<property name="pointC">
-			<bean class="com.victorarana.spring.Point">
-				<property name="x" value="20" />
-				<property name="y" value="0" />
-			</bean>
-		</property>
-	</bean>
-
-	<bean id="zeroPoint" class="com.victorarana.spring.Point">
-		<property name="x" value="0" />
-		<property name="y" value="0" />
 	</bean>
 	
-	<alias name="triangle" alias="triangle-alias"/>
+	<bean id="zeroPoint" class="com.victorarana.spring.Point">
+		<property name="x" value="0"/>
+		<property name="y" value="0"/>
+	</bean>
+	
+	<bean id="point2" class="com.victorarana.spring.Point">
+		<property name="x" value="-20"/>
+		<property name="y" value="0"/>
+	</bean>
+	
+	<bean id="point3" class="com.victorarana.spring.Point">
+		<property name="x" value="20"/>
+		<property name="y" value="0"/>
+	</bean>
 	
 </beans>
