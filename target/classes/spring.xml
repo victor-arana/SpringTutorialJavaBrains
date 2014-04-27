@@ -3,27 +3,21 @@
 
 <beans>
 	
-	<bean id="triangle" class="com.victorarana.spring.Triangle">
-		<property name="points">
-			<list>
-				<ref bean="zeroPoint"/>
-				<ref bean="point2"/>
-				<ref bean="point3"/>
-			</list>
-		</property>
+	<bean id="triangle" class="com.victorarana.spring.Triangle" autowire="byName" >
+
 	</bean>
 	
-	<bean id="zeroPoint" class="com.victorarana.spring.Point">
+	<bean id="pointA" class="com.victorarana.spring.Point">
 		<property name="x" value="0"/>
 		<property name="y" value="0"/>
 	</bean>
 	
-	<bean id="point2" class="com.victorarana.spring.Point">
+	<bean id="pointB" class="com.victorarana.spring.Point">
 		<property name="x" value="-20"/>
 		<property name="y" value="0"/>
 	</bean>
 	
-	<bean id="point3" class="com.victorarana.spring.Point">
+	<bean id="pointC" class="com.victorarana.spring.Point">
 		<property name="x" value="20"/>
 		<property name="y" value="0"/>
 	</bean>
