@@ -4,29 +4,28 @@
 <beans>
 
 	<bean id="triangle" class="com.victorarana.spring.Triangle">
-		<property name="pointA" ref="zeroPoint" />
-		<!-- This is an inner bean -->
-		<property name="pointB">
-			<!-- The id attribute is not necessary since this bean is not referenced 
-				from outside -->
-			<bean class="com.victorarana.spring.Point">
-				<property name="x" value="-20" />
-				<property name="y" value="0" />
-			</bean>
-		</property>
-		<property name="pointC">
-			<bean class="com.victorarana.spring.Point">
-				<property name="x" value="20" />
-				<property name="y" value="0" />
-			</bean>
-		</property>
+		<property name="pointA" ref="pointA" />
+		<property name="pointB" ref="pointB" />
+		<property name="pointC" ref="pointC" />
 	</bean>
 
-	<bean id="zeroPoint" class="com.victorarana.spring.Point">
+	<bean id="pointA" class="com.victorarana.spring.Point">
 		<property name="x" value="0" />
 		<property name="y" value="0" />
 	</bean>
-	
-	<alias name="triangle" alias="triangle-alias"/>
-	
+
+	<bean id="pointB" class="com.victorarana.spring.Point">
+		<property name="x" value="-20" />
+		<property name="y" value="0" />
+	</bean>
+
+	<bean id="pointC" class="com.victorarana.spring.Point">
+		<property name="x" value="20" />
+		<property name="y" value="0" />
+	</bean>
+
+	<bean id="circle" class="com.victorarana.spring.Circle">
+		<property name="center" ref="pointA" />
+	</bean>
+
 </beans>
